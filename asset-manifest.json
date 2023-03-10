@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/51150JuanLujan/static/css/main.f8a03303.css",
+    "main.js": "/51150JuanLujan/static/js/main.babeea8c.js",
+    "static/js/787.da3cb16f.chunk.js": "/51150JuanLujan/static/js/787.da3cb16f.chunk.js",
+    "static/media/Carrito.png": "/51150JuanLujan/static/media/Carrito.9fbc00f27bd37f22bc3a.png",
+    "index.html": "/51150JuanLujan/index.html",
+    "main.f8a03303.css.map": "/51150JuanLujan/static/css/main.f8a03303.css.map",
+    "main.babeea8c.js.map": "/51150JuanLujan/static/js/main.babeea8c.js.map",
+    "787.da3cb16f.chunk.js.map": "/51150JuanLujan/static/js/787.da3cb16f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8a03303.css",
+    "static/js/main.babeea8c.js"
+  ]
+}
