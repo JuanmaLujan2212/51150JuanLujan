@@ -1,0 +1,42 @@
+.topNavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131921;
+}
+
+#Busqueda{
+    height: 40px;
+    width: 700px;
+}
+
+.subNavBar{
+    background-color: #232f3e;
+    height: 50px;
+}
+
+.subNavBar button{
+    height: 50px;
+    font: normal 30px Arial;
+    color: white;
+    background-color: #232f3e;
+    border-radius: 4px;
+    border: none;
+    margin-right: 10px;
+}    
+
+.NavBar h1{
+    color: white;
+    padding-left: 30px;
+}
+
+#carrito{
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+.Cart{
+    color: white;
+    padding-right: 15px;
+}
