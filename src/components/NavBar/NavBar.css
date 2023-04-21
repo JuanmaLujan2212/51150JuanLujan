@@ -30,6 +30,7 @@
 }   
 
 .NavBar h1{
+    padding-top: 5px;
     color: white;
     padding-left: 20px;
 }
@@ -44,3 +45,4 @@
     color: white;
     padding-right: 15px;
 }
+

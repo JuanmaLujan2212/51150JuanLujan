@@ -1,21 +1,56 @@
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from "react-router-dom"
 import './NavBar.css'
+import { useAuth } from '../../context/AuthContext'
+import { useEffect, useState } from 'react'
+import { collection, getDocs} from 'firebase/firestore'
+import { db } from '../../services/firebase/firebaseConfig'
+
+
 const NavBar = () =>{
+    const [categories, setCategories] = useState([])
+    const {user} = useAuth();
+
+    useEffect(()=>{
+        const categoriesRef = collection(db, 'categories')
+
+        getDocs(categoriesRef)
+        .then(snapshot => {
+            const categoriesAdapted = snapshot.docs.map(doc => {
+                const data = doc.data();
+
+                return { id: doc.id, ...data }
+            })
+
+            setCategories(categoriesAdapted)
+        })
+    },[])
+
+
+
     return(
         <nav className="NavBar">
-            <div className='topNavBar'>
-                <h1>BASIC</h1>
+               <div className='topNavBar'>
+                <Link className='NavBarLink'to='/'><h1>BASIC</h1></Link>
+                
                 <input className='form-control rounded' id='Busqueda' placeholder='Search'></input>
-                <CartWidget/>
+                {
+                    user ? (
+                        <CartWidget/>
+                    ) : (
+                        <Link className='NavBarLink'to='/login'>Login</Link> 
+                    )
+                }
+
             </div>
             <div className='subNavBar'>
-                <Link className='NavBarLink'to='/'>Home</Link>
-                <Link className='NavBarLink'to='/category/campera'>Camperas</Link>
-                <Link className='NavBarLink'to='/category/camiseta'>Camisetas</Link>
-                <Link className='NavBarLink'to='/category/pantalon'>Pantalones</Link>
-                <Link className='NavBarLink'to='/category/calzado'>Calzado</Link> 
-
+                {
+                    categories.map(cat => {
+                        return (
+                            <Link key={cat.id} className='NavBarLink' to= {`/category/${cat.slug}`}>{cat.label}</Link>
+                        )
+                    })
+                }
             </div>
 
         </nav>

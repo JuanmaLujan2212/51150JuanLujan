@@ -1,9 +1,9 @@
 .Cargando{
-    height: 500px;
+    height: 400px;
     padding-top: 20%;
     text-align: center;
 }
 
-.Saludo{
+*{
     text-align: center;
 }

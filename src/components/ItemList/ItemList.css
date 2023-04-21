@@ -1,0 +1,10 @@
+.ItemContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.Item{
+    margin-left: 100px;
+    margin-right: 100px;
+}

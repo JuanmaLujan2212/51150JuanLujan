@@ -1,0 +1,16 @@
+.boton{
+    font: normal 15px Arial;;
+    margin-bottom: 20px;
+}
+
+.Mainboton{
+    text-decoration: none;
+    font: normal 20px Arial;;
+    color: white;
+    background-color: #232f3e;
+    border: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}

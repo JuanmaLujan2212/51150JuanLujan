@@ -1,11 +1,16 @@
 import Item from "../Item/Item"
+import './ItemList.css'
 
 const ItemList = ({ products }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: "space-around"}}>
+        <div className="ItemContainer">
             {
                  products.map(product => {
-                    return <Item key={product.id} {...product}/>
+                    return (
+                        <div className="Item">
+                            <Item key={product.id} {...product}/>
+                        </div>
+                    )
                 })
             }
         </div>
