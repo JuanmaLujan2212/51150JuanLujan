@@ -7,22 +7,28 @@ import { useNotification } from '../../notification/NotificationService'
 const ItemDetail = ({ id, name, category, img, price, stock, description  }) => {
 
     const [quantity, setQuantity] = useState(0)
-    const { addItem } = useContext(CartContext);
+    const { addItem, isInCart } = useContext(CartContext);
     const { setNotification } = useNotification()
 
     const handleOnAdd = (quantity) => {
         const objProductToAdd = {
             id, name, price, quantity, stock
         }
+
+        const is = isInCart(objProductToAdd.id)
+        console.log(is)
         
-        setQuantity(quantity)
-        addItem(objProductToAdd);
-        setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
+        if (is){
+            setNotification('error', `El producto que desea agrega ya se encuentra en el carrito`)
+        }else{
+            setQuantity(quantity)
+            addItem(objProductToAdd);
+            setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
+        }
         
     }
 
    
-
     return (
         <article className="CardItem">
         <header className="Header">
@@ -44,18 +50,8 @@ const ItemDetail = ({ id, name, category, img, price, stock, description  }) => 
                 Precio: ${price}
             </p>
         </section>           
-        <footer className='ItemFooter'>
-        
-                {/* {
-                    quantity > 0 ? (
-                        <Link to='/cart'>Terminar compra</Link>
-                    ) : (
-                    ) : ( */}
-                        <ItemCounter onAdd={handleOnAdd} stock={stock} />
-                    
-                
-                    {/* )
-                } */}
+        <footer className='ItemFooter'>           
+                    <ItemCounter onAdd={handleOnAdd} stock={stock} />
         </footer>
     </article>
     )

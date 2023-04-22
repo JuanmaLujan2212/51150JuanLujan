@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-
 export const CartContext = createContext()
 
 export const CartProvider = ({children}) =>{
@@ -10,6 +9,7 @@ export const CartProvider = ({children}) =>{
           setCart(prev=> [...prev, productToAdd])
         }else{
           console.log("El producto ya ha sido agregado anteriormente")
+
         }
       }
 
@@ -48,7 +48,7 @@ export const CartProvider = ({children}) =>{
 
 
     return(
-        <CartContext.Provider value={{cart, addItem, removeItem, totalQuantity, totalPrice, clearCart}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, totalQuantity, totalPrice, clearCart, isInCart}}>
             {children}
         </CartContext.Provider>
     )
